@@ -3,11 +3,18 @@ import queryString from "query-string"
 import { useForm } from "../../hooks/useForm"
 import { HeroCard } from "../components/HeroCard"
 import { getHeroesByName } from "../helpers/getHeroesByName"
+import { useRef } from "react"
 
 export const SearchPage = () => {
 
   const navigate = useNavigate()
   const location = useLocation()
+
+  const inputRef = useRef()
+
+  const handleFocus = () =>{
+    inputRef.current.select()
+  }
 
   const {q = ''} = queryString.parse(location.search)
 
@@ -34,8 +41,9 @@ export const SearchPage = () => {
          <h4>Searching</h4>
          <hr />
          <form onSubmit={onSearchSubmit}>
-          <input 
-          type="text"
+          <input
+           ref={inputRef}
+           type="text"
            placeholder="Search a hero" 
            className="form-control"
            name="searchText"
@@ -46,6 +54,11 @@ export const SearchPage = () => {
           <button className="btn btn-outline-primary mt-1">
             Search
           </button>
+
+          <button onClick={handleFocus} style={{marginLeft: '10px', background: 'red', color: 'white'}} className="btn btn-outline mt-1">
+            Focus
+          </button>
+
          </form>
       </div>
 
