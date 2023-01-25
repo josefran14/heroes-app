@@ -7,8 +7,8 @@ export const HeroPage = () => {
    const navigate = useNavigate()
 
    const onNavigateBack = () =>{
-       //navigate(-1)
-       hero.publisher === 'DC Comics' ? navigate('/dc') : navigate('/marvel')
+       navigate(-1)
+       //hero.publisher === 'DC Comics' ? navigate('/dc') : navigate('/marvel')
    }
 
    const {id} = useParams()
