@@ -4,18 +4,17 @@ import { useForm } from "../../hooks/useForm"
 import { HeroCard } from "../components/HeroCard"
 import { getHeroesByName } from "../helpers/getHeroesByName"
 import { useRef } from "react"
-import { heroes } from "../data/heroes"
 
 export const SearchPage = () => {
 
   const navigate = useNavigate()
   const location = useLocation()
 
-  const inputRef = useRef()
+   const inputRef = useRef()
 
-  const handleFocus = () =>{
-    inputRef.current.select()
-  }
+   const handleFocus = () =>{
+     inputRef.current.select()
+   }
 
   const {q = ''} = queryString.parse(location.search)
 
