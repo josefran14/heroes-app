@@ -12,14 +12,12 @@ export const AppRouter = () => {
         <Route path='login' element={<LoginPage/>}></Route>
 
         <Route path='/*' element={
+          <PrivateRoute>
+            <HeroesRoutes/>
+          </PrivateRoute>
+        }/>
 
-        <PrivateRoute>
-           <Route path='/*' element={<HeroesRoutes/>}></Route>
-        </PrivateRoute>
-        
-        }></Route>
-
-       {/* <Route path='/*' element={<HeroesRoutes/>}></Route> */}
+        {/* <Route path='/*' element={<HeroesRoutes/>}></Route>  */}
 
      </Routes>
    </>
